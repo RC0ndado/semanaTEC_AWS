@@ -1,6 +1,6 @@
 from crypt import methods
 from distutils.log import debug
-from flask import Flask, request, jsonify, render_tem
+from flask import Flask, request, jsonify, render_template
 
 
 # Generar el servidor (Back-end)
