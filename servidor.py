@@ -1,6 +1,7 @@
 #from crypt import methods
 #from distutils.log import debug
 #from fileinput import filename
+from crypt import methods
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename  # Procesar datos de la web
 from joblib import load # Empaquetar datso
@@ -38,6 +39,14 @@ def modeloFile():
     for line in file:
         print(line)
     return jsonify({"Resultado":"datos recibidos"})
+
+@servidorWeb.route("/modelo", methods=["POST"])
+def model():
+    #Procesador de daros de entrada
+    contenido = request.json
+    print(contenido)
+    return jsonify({"Resultado":"datos recibidos"})
+    
         
 
 if __name__ == '__main__':
