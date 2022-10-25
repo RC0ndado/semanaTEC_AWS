@@ -1,6 +1,6 @@
-from crypt import methods
-from distutils.log import debug
-from fileinput import filename
+#from crypt import methods
+#from distutils.log import debug
+#from fileinput import filename
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename  # Procesar datos de la web
 from joblib import load # Empaquetar datso
