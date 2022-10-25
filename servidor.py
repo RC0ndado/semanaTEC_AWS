@@ -8,6 +8,9 @@ from joblib import load # Empaquetar datso
 import numpy as np
 import os
 
+#Cargar el modelo
+dt = load('modelo.joblib')
+
 
 # Generar el servidor (Back-end)
 
@@ -24,7 +27,17 @@ def modeloForm():
     #Procesar los datos de entrada
     contenido = request.form 
     print(contenido)
-    return jsonify({"Resultado":"datos recibidos"})
+    
+    datosEntrada = np.array([
+         7.20000, 0.36000, 0.46000, 2.10000, 0.07400, 24.00000, 44.00000, 0.99534,
+         contenido['pH'],
+         contenido['sulfatos'],
+         contenido['alcohol']
+    ])
+    #utilizar el modelo
+    resultado = dt.predict(datosEntrada.reshape(1,-1))
+    
+    return jsonify({"Resultado":str(resultado[0])})
 
 
 #Procesar datos de un archivo
