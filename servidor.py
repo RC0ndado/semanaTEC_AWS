@@ -1,12 +1,13 @@
 #from crypt import methods
 #from distutils.log import debug
-#from fileinput import filename
-from crypt import methods
+#
+#from crypt import methods
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename  # Procesar datos de la web
 from joblib import load # Empaquetar datso
 import numpy as np
 import os
+from fileinput import filename
 
 #Cargar el modelo
 dt = load('modelo.joblib')
