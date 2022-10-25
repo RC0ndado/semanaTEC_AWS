@@ -31,7 +31,8 @@ def modeloForm():
 def modeloFile():
     f = request.files['file']
     filename = secure_filename(f.filename)
-    path = os.path.join(os.getcwd(), 'files', filename)
+    path = os.path.join(os.getcwd(), filename)
+    print(path)
     f.save(path)
     file = open(path, 'r')
     for line in file:
