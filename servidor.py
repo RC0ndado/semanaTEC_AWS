@@ -18,7 +18,7 @@ def formulario():
     return render_template('pagina.html')
 
 #Procesar datos a través del form
-@servidorWeb.route('/modeloIA', methodS=["POST"])
+@servidorWeb.route('/modeloIA', methods=["POST"])
 def modeloForm():
     #Procesar los datos de entrada
     contenido = request.form 
