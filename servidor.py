@@ -27,11 +27,11 @@ def modeloForm():
 
 
 #Procesar datos de un archivo
-@servidorWeb.route('/modeloFile', methods=["POST"])
+@servidorWeb.route('/modeloFile', methods=['POST'])
 def modeloFile():
     f = request.files['file']
     filename = secure_filename(f.filename)
-    path = os.path.join(os.getcwd, 'files', filename)
+    path = os.path.join(os.getcwd(), 'files', filename)
     f.save(path)
     file = open(path, 'r')
     for line in file:
